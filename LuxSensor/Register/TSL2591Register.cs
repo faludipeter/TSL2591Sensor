@@ -10,7 +10,7 @@ namespace LuxSensor
     /// <remarks>
     /// Page 13 in the datasheet: https://ams.com/documents/20143/36005/TSL2591_DS000338_6-00.pdf/090eb50d-bb18-5b45-4938-9b3672f86b80
     /// </remarks>
-    internal enum TSL2591Register : byte
+    public enum TSL2591Register : byte
     {
         /// <summary>
         /// R/W Enables states and interrupts

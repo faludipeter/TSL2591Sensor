@@ -18,16 +18,19 @@ namespace LuxSensor
             }
             Console.WriteLine("Debugger attached");
 #endif
-            I2cConnectionSettings cs = new I2cConnectionSettings(1, TLS2591Sensor.DefaultI2cAddress);
+            I2cConnectionSettings cs = new I2cConnectionSettings(1, TSL2591Sensor.DefaultI2cAddress);
+            I2cDevice LuxSensor = I2cDevice.Create(cs);
 
-            using (TLS2591Sensor sensor = new TLS2591Sensor(cs))
+            using (TSL2591Sensor sensor = new TSL2591Sensor(LuxSensor))
             {
-                sensor.Initialize();
+
+                while (true)
+                {
+                    Console.WriteLine("Lux is: " + sensor.GetLux());
+                    Thread.Sleep(1000);
+                }
+                
             }
-               
-
-            Console.ReadKey();
-
         }
     }
 }
